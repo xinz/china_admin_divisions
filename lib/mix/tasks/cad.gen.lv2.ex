@@ -187,7 +187,7 @@ defmodule Mix.Tasks.Cad.Gen.Lv2 do
       {
         key,
         Enum.reduce(items, [], fn i, acc ->
-          [i["lv3_code"], i["lv3_name"] | acc]
+          [i["lv3_name"] | acc]
         end)
       }
     end)
