@@ -58,7 +58,7 @@ defmodule ChinaAdminDivisions do
 
   ## Example
 
-  Use the division code to find its subdivisions.
+  Use the division code to query its subdivisions.
 
       iex> ChinaAdminDivisions.items("11")
       [%{"code" => "1101", "name" => "北京市/市辖区"}]
@@ -102,7 +102,7 @@ defmodule ChinaAdminDivisions do
         %{"code" => "110101017000", "name" => "永定门外街道"}
       ]
 
-  Or use the division name to find its subdivisions.
+  Or use the division name to query its subdivisions.
 
       iex> ChinaAdminDivisions.items("上海市")
       [%{"code" => "3101", "name" => "上海市/市辖区"}]
@@ -154,7 +154,20 @@ defmodule ChinaAdminDivisions do
   def items(_), do: nil
 
   @doc """
-  According to the division code (`省级`, `地级`, `县级`, `乡级`), find the matched name or `nil`.
+  According to the division code (`省级`, `地级`, `县级`, `乡级`), query the matched name or `nil`.
+
+  ## Example
+
+      iex> ChinaAdminDivisions.name("50")
+      "重庆市"
+      iex> ChinaAdminDivisions.name("5002")
+      "重庆市/县"
+      iex> ChinaAdminDivisions.name("310115")
+      "浦东新区"
+      iex> ChinaAdminDivisions.name("319115")
+      nil
+      iex> ChinaAdminDivisions.name("99")
+      nil
   """
   @spec name(code :: String.t()) :: String.t() | nil
   def name(<<_::8, _::8>> = code), do: Lv1s.name(code)
@@ -166,7 +179,8 @@ defmodule ChinaAdminDivisions do
   def name(_), do: nil
 
   @doc """
-  According to the division name (`省级`, `地级`, `县级`), find the matched code or `nil`, because there is a potential for duplication names at `乡级` level, so currently dose not support it.
+  According to the division name (`省级`, `地级`, `县级`), query the matched code or `nil`, because there may be duplicate names at the `乡级` level,
+  the query cannot be completed at this level.
 
   ## Example
 
@@ -188,8 +202,23 @@ defmodule ChinaAdminDivisions do
   def code(_), do: nil
 
   @doc """
-  According to the division code (`省级`, `地级`, `县级`, `乡级`), find the all previous levels division names.
-  If any part division is not found, the whole result is `nil`.
+  According to the division code (`省级`, `地级`, `县级`, `乡级`), query the all previous levels division names,
+  if any part division is not found, the whole result is `nil`.
+
+  ## Example
+
+      iex> ChinaAdminDivisions.expand("44")
+      ["广东省"]
+      iex> ChinaAdminDivisions.expand("4401")
+      ["广东省", "广州市"]
+      iex> ChinaAdminDivisions.expand("440106")
+      ["广东省", "广州市", "天河区"]
+      iex> ChinaAdminDivisions.expand("440106014000")
+      ["广东省", "广州市", "天河区", "冼村街道"]
+      iex> ChinaAdminDivisions.expand("440190")
+      nil
+      iex> ChinaAdminDivisions.expand("440106014001")
+      nil
   """
   def expand(<<_::8, _::8>> = code) do
     name = Lv1s.name(code)
