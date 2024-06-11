@@ -1,0 +1,33 @@
+defmodule ChinaAdminDivisions.Gen.Lv4xg.M4207 do
+  @moduledoc false
+
+  def name("420704001"), do: "凤凰街道"
+  def name("420704002"), do: "古楼街道"
+  def name("420704003"), do: "西山街道"
+  def name("420704100"), do: "泽林镇"
+  def name("420704101"), do: "杜山镇"
+  def name("420704102"), do: "新庙镇"
+  def name("420704103"), do: "碧石镇"
+  def name("420704104"), do: "汀祖镇"
+  def name("420704105"), do: "燕矶镇"
+  def name("420704106"), do: "杨叶镇"
+  def name("420704107"), do: "花湖镇"
+  def name("420704108"), do: "长港镇"
+  def name("420704200"), do: "沙窝乡"
+  def name("420704400"), do: "鄂州经济开发区"
+  def name("420704401"), do: "临空经济区"
+  def name("420703100"), do: "华容镇"
+  def name("420703101"), do: "葛店镇"
+  def name("420703102"), do: "庙岭镇"
+  def name("420703103"), do: "段店镇"
+  def name("420703200"), do: "临江乡"
+  def name("420703201"), do: "蒲团乡"
+  def name("420703400"), do: "葛店开发区"
+  def name("420702100"), do: "太和镇"
+  def name("420702101"), do: "东沟镇"
+  def name("420702102"), do: "梁子镇"
+  def name("420702103"), do: "涂家垴镇"
+  def name("420702104"), do: "沼山镇"
+  def name("420702400"), do: "梧桐湖新区"
+  def name(_unknown), do: nil
+end

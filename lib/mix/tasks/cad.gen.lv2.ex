@@ -18,7 +18,7 @@ defmodule Mix.Tasks.Cad.Gen.Lv2 do
 
   defp generate() do
     pca_code = read_pca_code()
-    {lv1lv2_items, lv2lv3_items, lv3lv4_items, _lv4_items, lv1_items, lv1_names, lv1_shorter_names, lv1_codes} =
+    {lv1lv2_items, lv2lv3_items, lv3lv4_items, lv4_items, lv1_items, lv1_names, lv1_shorter_names, lv1_codes} =
       Enum.reduce(pca_code, {[], [], [], [], [], [], [], []}, fn p, {pcs0, cas0, lv3_4_acc, lv4_acc, lv1_items, lv1_names, lv1_shorter_names, lv1_codes} ->
         lv1_name = p["name"]
         lv1_code = p["code"]
@@ -84,7 +84,7 @@ defmodule Mix.Tasks.Cad.Gen.Lv2 do
                 | l2_3s
               ],
               [lv3_4_items | lv3_4s],
-              [lv4_items | l4s]
+              [{lv2_code, lv4_items} | l4s]
             }
           end)
 
@@ -151,9 +151,9 @@ defmodule Mix.Tasks.Cad.Gen.Lv2 do
     Mix.Generator.create_file(target, file_content, [])
 
 
+    source = "priv/templates/cad_gen/lv3x.submodule.ex"
     formatted_lv3lv4_items =
       for {key, items} <- lv3lv4_items do
-        source = "priv/templates/cad_gen/lv3x.submodule.ex"
         target = "lib/gen/lv3x/m#{key}.ex"
 
         items = List.flatten(items) |> Enum.reverse()
@@ -208,5 +208,19 @@ defmodule Mix.Tasks.Cad.Gen.Lv2 do
       |> Code.format_string!()
 
     Mix.Generator.create_file(target, file_content, [])
+
+    lv4_items = List.flatten(lv4_items)
+    source = "priv/templates/cad_gen/lv4xg.submodule.ex"
+    for {key, items} <- lv4_items do
+      target = "lib/gen/lv4xg/m#{key}.ex"
+      file_content =
+        source
+        |> EEx.eval_file(context: %{
+          items: List.flatten(items),
+          module: "M#{key}"
+        })
+        |> Code.format_string!()
+      Mix.Generator.create_file(target, file_content, [])
+    end
   end
 end
