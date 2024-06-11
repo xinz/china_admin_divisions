@@ -1372,348 +1372,348 @@ defmodule ChinaAdminDivisions.Gen.Lv2d do
 
   def code(_unknown), do: nil
 
-  def name("1101"), do: {"北京市/市辖区", "北京/市辖区"}
-  def name("1201"), do: {"天津市/市辖区", "天津/市辖区"}
-  def name("1311"), do: {"衡水市", "衡水"}
-  def name("1310"), do: {"廊坊市", "廊坊"}
-  def name("1309"), do: {"沧州市", "沧州"}
-  def name("1308"), do: {"承德市", "承德"}
-  def name("1307"), do: {"张家口市", "张家口"}
-  def name("1306"), do: {"保定市", "保定"}
-  def name("1305"), do: {"邢台市", "邢台"}
-  def name("1304"), do: {"邯郸市", "邯郸"}
-  def name("1303"), do: {"秦皇岛市", "秦皇岛"}
-  def name("1302"), do: {"唐山市", "唐山"}
-  def name("1301"), do: {"石家庄市", "石家庄"}
-  def name("1411"), do: {"吕梁市", "吕梁"}
-  def name("1410"), do: {"临汾市", "临汾"}
-  def name("1409"), do: {"忻州市", "忻州"}
-  def name("1408"), do: {"运城市", "运城"}
-  def name("1407"), do: {"晋中市", "晋中"}
-  def name("1406"), do: {"朔州市", "朔州"}
-  def name("1405"), do: {"晋城市", "晋城"}
-  def name("1404"), do: {"长治市", "长治"}
-  def name("1403"), do: {"阳泉市", "阳泉"}
-  def name("1402"), do: {"大同市", "大同"}
-  def name("1401"), do: {"太原市", "太原"}
-  def name("1529"), do: {"阿拉善盟", "阿拉善"}
-  def name("1525"), do: {"锡林郭勒盟", "锡林郭勒"}
-  def name("1522"), do: {"兴安盟", "兴安"}
-  def name("1509"), do: {"乌兰察布市", "乌兰察布"}
-  def name("1508"), do: {"巴彦淖尔市", "巴彦淖尔"}
-  def name("1507"), do: {"呼伦贝尔市", "呼伦贝尔"}
-  def name("1506"), do: {"鄂尔多斯市", "鄂尔多斯"}
-  def name("1505"), do: {"通辽市", "通辽"}
-  def name("1504"), do: {"赤峰市", "赤峰"}
-  def name("1503"), do: {"乌海市", "乌海"}
-  def name("1502"), do: {"包头市", "包头"}
-  def name("1501"), do: {"呼和浩特市", "呼和浩特"}
-  def name("2114"), do: {"葫芦岛市", "葫芦岛"}
-  def name("2113"), do: {"朝阳市", "朝阳"}
-  def name("2112"), do: {"铁岭市", "铁岭"}
-  def name("2111"), do: {"盘锦市", "盘锦"}
-  def name("2110"), do: {"辽阳市", "辽阳"}
-  def name("2109"), do: {"阜新市", "阜新"}
-  def name("2108"), do: {"营口市", "营口"}
-  def name("2107"), do: {"锦州市", "锦州"}
-  def name("2106"), do: {"丹东市", "丹东"}
-  def name("2105"), do: {"本溪市", "本溪"}
-  def name("2104"), do: {"抚顺市", "抚顺"}
-  def name("2103"), do: {"鞍山市", "鞍山"}
-  def name("2102"), do: {"大连市", "大连"}
-  def name("2101"), do: {"沈阳市", "沈阳"}
-  def name("2224"), do: {"延边朝鲜族自治州", "延边朝鲜族"}
-  def name("2208"), do: {"白城市", "白城"}
-  def name("2207"), do: {"松原市", "松原"}
-  def name("2206"), do: {"白山市", "白山"}
-  def name("2205"), do: {"通化市", "通化"}
-  def name("2204"), do: {"辽源市", "辽源"}
-  def name("2203"), do: {"四平市", "四平"}
-  def name("2202"), do: {"吉林市", "吉林"}
-  def name("2201"), do: {"长春市", "长春"}
-  def name("2327"), do: {"大兴安岭地区", "大兴安岭"}
-  def name("2312"), do: {"绥化市", "绥化"}
-  def name("2311"), do: {"黑河市", "黑河"}
-  def name("2310"), do: {"牡丹江市", "牡丹江"}
-  def name("2309"), do: {"七台河市", "七台河"}
-  def name("2308"), do: {"佳木斯市", "佳木斯"}
-  def name("2307"), do: {"伊春市", "伊春"}
-  def name("2306"), do: {"大庆市", "大庆"}
-  def name("2305"), do: {"双鸭山市", "双鸭山"}
-  def name("2304"), do: {"鹤岗市", "鹤岗"}
-  def name("2303"), do: {"鸡西市", "鸡西"}
-  def name("2302"), do: {"齐齐哈尔市", "齐齐哈尔"}
-  def name("2301"), do: {"哈尔滨市", "哈尔滨"}
-  def name("3101"), do: {"上海市/市辖区", "上海/市辖区"}
-  def name("3213"), do: {"宿迁市", "宿迁"}
-  def name("3212"), do: {"泰州市", "泰州"}
-  def name("3211"), do: {"镇江市", "镇江"}
-  def name("3210"), do: {"扬州市", "扬州"}
-  def name("3209"), do: {"盐城市", "盐城"}
-  def name("3208"), do: {"淮安市", "淮安"}
-  def name("3207"), do: {"连云港市", "连云港"}
-  def name("3206"), do: {"南通市", "南通"}
-  def name("3205"), do: {"苏州市", "苏州"}
-  def name("3204"), do: {"常州市", "常州"}
-  def name("3203"), do: {"徐州市", "徐州"}
-  def name("3202"), do: {"无锡市", "无锡"}
-  def name("3201"), do: {"南京市", "南京"}
-  def name("3311"), do: {"丽水市", "丽水"}
-  def name("3310"), do: {"台州市", "台州"}
-  def name("3309"), do: {"舟山市", "舟山"}
-  def name("3308"), do: {"衢州市", "衢州"}
-  def name("3307"), do: {"金华市", "金华"}
-  def name("3306"), do: {"绍兴市", "绍兴"}
-  def name("3305"), do: {"湖州市", "湖州"}
-  def name("3304"), do: {"嘉兴市", "嘉兴"}
-  def name("3303"), do: {"温州市", "温州"}
-  def name("3302"), do: {"宁波市", "宁波"}
-  def name("3301"), do: {"杭州市", "杭州"}
-  def name("3418"), do: {"宣城市", "宣城"}
-  def name("3417"), do: {"池州市", "池州"}
-  def name("3416"), do: {"亳州市", "亳州"}
-  def name("3415"), do: {"六安市", "六安"}
-  def name("3413"), do: {"宿州市", "宿州"}
-  def name("3412"), do: {"阜阳市", "阜阳"}
-  def name("3411"), do: {"滁州市", "滁州"}
-  def name("3410"), do: {"黄山市", "黄山"}
-  def name("3408"), do: {"安庆市", "安庆"}
-  def name("3407"), do: {"铜陵市", "铜陵"}
-  def name("3406"), do: {"淮北市", "淮北"}
-  def name("3405"), do: {"马鞍山市", "马鞍山"}
-  def name("3404"), do: {"淮南市", "淮南"}
-  def name("3403"), do: {"蚌埠市", "蚌埠"}
-  def name("3402"), do: {"芜湖市", "芜湖"}
-  def name("3401"), do: {"合肥市", "合肥"}
-  def name("3509"), do: {"宁德市", "宁德"}
-  def name("3508"), do: {"龙岩市", "龙岩"}
-  def name("3507"), do: {"南平市", "南平"}
-  def name("3506"), do: {"漳州市", "漳州"}
-  def name("3505"), do: {"泉州市", "泉州"}
-  def name("3504"), do: {"三明市", "三明"}
-  def name("3503"), do: {"莆田市", "莆田"}
-  def name("3502"), do: {"厦门市", "厦门"}
-  def name("3501"), do: {"福州市", "福州"}
-  def name("3611"), do: {"上饶市", "上饶"}
-  def name("3610"), do: {"抚州市", "抚州"}
-  def name("3609"), do: {"宜春市", "宜春"}
-  def name("3608"), do: {"吉安市", "吉安"}
-  def name("3607"), do: {"赣州市", "赣州"}
-  def name("3606"), do: {"鹰潭市", "鹰潭"}
-  def name("3605"), do: {"新余市", "新余"}
-  def name("3604"), do: {"九江市", "九江"}
-  def name("3603"), do: {"萍乡市", "萍乡"}
-  def name("3602"), do: {"景德镇市", "景德镇"}
-  def name("3601"), do: {"南昌市", "南昌"}
-  def name("3717"), do: {"菏泽市", "菏泽"}
-  def name("3716"), do: {"滨州市", "滨州"}
-  def name("3715"), do: {"聊城市", "聊城"}
-  def name("3714"), do: {"德州市", "德州"}
-  def name("3713"), do: {"临沂市", "临沂"}
-  def name("3711"), do: {"日照市", "日照"}
-  def name("3710"), do: {"威海市", "威海"}
-  def name("3709"), do: {"泰安市", "泰安"}
-  def name("3708"), do: {"济宁市", "济宁"}
-  def name("3707"), do: {"潍坊市", "潍坊"}
-  def name("3706"), do: {"烟台市", "烟台"}
-  def name("3705"), do: {"东营市", "东营"}
-  def name("3704"), do: {"枣庄市", "枣庄"}
-  def name("3703"), do: {"淄博市", "淄博"}
-  def name("3702"), do: {"青岛市", "青岛"}
-  def name("3701"), do: {"济南市", "济南"}
-  def name("4190"), do: {"河南省/省直辖县级行政区划", "河南/省直辖县级行政区划"}
-  def name("4117"), do: {"驻马店市", "驻马店"}
-  def name("4116"), do: {"周口市", "周口"}
-  def name("4115"), do: {"信阳市", "信阳"}
-  def name("4114"), do: {"商丘市", "商丘"}
-  def name("4113"), do: {"南阳市", "南阳"}
-  def name("4112"), do: {"三门峡市", "三门峡"}
-  def name("4111"), do: {"漯河市", "漯河"}
-  def name("4110"), do: {"许昌市", "许昌"}
-  def name("4109"), do: {"濮阳市", "濮阳"}
-  def name("4108"), do: {"焦作市", "焦作"}
-  def name("4107"), do: {"新乡市", "新乡"}
-  def name("4106"), do: {"鹤壁市", "鹤壁"}
-  def name("4105"), do: {"安阳市", "安阳"}
-  def name("4104"), do: {"平顶山市", "平顶山"}
-  def name("4103"), do: {"洛阳市", "洛阳"}
-  def name("4102"), do: {"开封市", "开封"}
-  def name("4101"), do: {"郑州市", "郑州"}
-  def name("4290"), do: {"湖北省/省直辖县级行政区划", "湖北/省直辖县级行政区划"}
-  def name("4228"), do: {"恩施土家族苗族自治州", "恩施"}
-  def name("4213"), do: {"随州市", "随州"}
-  def name("4212"), do: {"咸宁市", "咸宁"}
-  def name("4211"), do: {"黄冈市", "黄冈"}
-  def name("4210"), do: {"荆州市", "荆州"}
-  def name("4209"), do: {"孝感市", "孝感"}
-  def name("4208"), do: {"荆门市", "荆门"}
-  def name("4207"), do: {"鄂州市", "鄂州"}
-  def name("4206"), do: {"襄阳市", "襄阳"}
-  def name("4205"), do: {"宜昌市", "宜昌"}
-  def name("4203"), do: {"十堰市", "十堰"}
-  def name("4202"), do: {"黄石市", "黄石"}
-  def name("4201"), do: {"武汉市", "武汉"}
-  def name("4331"), do: {"湘西土家族苗族自治州", "湘西"}
-  def name("4313"), do: {"娄底市", "娄底"}
-  def name("4312"), do: {"怀化市", "怀化"}
-  def name("4311"), do: {"永州市", "永州"}
-  def name("4310"), do: {"郴州市", "郴州"}
-  def name("4309"), do: {"益阳市", "益阳"}
-  def name("4308"), do: {"张家界市", "张家界"}
-  def name("4307"), do: {"常德市", "常德"}
-  def name("4306"), do: {"岳阳市", "岳阳"}
-  def name("4305"), do: {"邵阳市", "邵阳"}
-  def name("4304"), do: {"衡阳市", "衡阳"}
-  def name("4303"), do: {"湘潭市", "湘潭"}
-  def name("4302"), do: {"株洲市", "株洲"}
-  def name("4301"), do: {"长沙市", "长沙"}
-  def name("4453"), do: {"云浮市", "云浮"}
-  def name("4452"), do: {"揭阳市", "揭阳"}
-  def name("4451"), do: {"潮州市", "潮州"}
-  def name("4420"), do: {"中山市", "中山"}
-  def name("4419"), do: {"东莞市", "东莞"}
-  def name("4418"), do: {"清远市", "清远"}
-  def name("4417"), do: {"阳江市", "阳江"}
-  def name("4416"), do: {"河源市", "河源"}
-  def name("4415"), do: {"汕尾市", "汕尾"}
-  def name("4414"), do: {"梅州市", "梅州"}
-  def name("4413"), do: {"惠州市", "惠州"}
-  def name("4412"), do: {"肇庆市", "肇庆"}
-  def name("4409"), do: {"茂名市", "茂名"}
-  def name("4408"), do: {"湛江市", "湛江"}
-  def name("4407"), do: {"江门市", "江门"}
-  def name("4406"), do: {"佛山市", "佛山"}
-  def name("4405"), do: {"汕头市", "汕头"}
-  def name("4404"), do: {"珠海市", "珠海"}
-  def name("4403"), do: {"深圳市", "深圳"}
-  def name("4402"), do: {"韶关市", "韶关"}
-  def name("4401"), do: {"广州市", "广州"}
-  def name("4514"), do: {"崇左市", "崇左"}
-  def name("4513"), do: {"来宾市", "来宾"}
-  def name("4512"), do: {"河池市", "河池"}
-  def name("4511"), do: {"贺州市", "贺州"}
-  def name("4510"), do: {"百色市", "百色"}
-  def name("4509"), do: {"玉林市", "玉林"}
-  def name("4508"), do: {"贵港市", "贵港"}
-  def name("4507"), do: {"钦州市", "钦州"}
-  def name("4506"), do: {"防城港市", "防城港"}
-  def name("4505"), do: {"北海市", "北海"}
-  def name("4504"), do: {"梧州市", "梧州"}
-  def name("4503"), do: {"桂林市", "桂林"}
-  def name("4502"), do: {"柳州市", "柳州"}
-  def name("4501"), do: {"南宁市", "南宁"}
-  def name("4690"), do: {"海南省/省直辖县级行政区划", "海南/省直辖县级行政区划"}
-  def name("4604"), do: {"儋州市", "儋州"}
-  def name("4603"), do: {"三沙市", "三沙"}
-  def name("4602"), do: {"三亚市", "三亚"}
-  def name("4601"), do: {"海口市", "海口"}
-  def name("5002"), do: {"重庆市/县", "重庆/县"}
-  def name("5001"), do: {"重庆市/市辖区", "重庆/市辖区"}
-  def name("5134"), do: {"凉山彝族自治州", "凉山"}
-  def name("5133"), do: {"甘孜藏族自治州", "甘孜"}
-  def name("5132"), do: {"阿坝藏族羌族自治州", "阿坝"}
-  def name("5120"), do: {"资阳市", "资阳"}
-  def name("5119"), do: {"巴中市", "巴中"}
-  def name("5118"), do: {"雅安市", "雅安"}
-  def name("5117"), do: {"达州市", "达州"}
-  def name("5116"), do: {"广安市", "广安"}
-  def name("5115"), do: {"宜宾市", "宜宾"}
-  def name("5114"), do: {"眉山市", "眉山"}
-  def name("5113"), do: {"南充市", "南充"}
-  def name("5111"), do: {"乐山市", "乐山"}
-  def name("5110"), do: {"内江市", "内江"}
-  def name("5109"), do: {"遂宁市", "遂宁"}
-  def name("5108"), do: {"广元市", "广元"}
-  def name("5107"), do: {"绵阳市", "绵阳"}
-  def name("5106"), do: {"德阳市", "德阳"}
-  def name("5105"), do: {"泸州市", "泸州"}
-  def name("5104"), do: {"攀枝花市", "攀枝花"}
-  def name("5103"), do: {"自贡市", "自贡"}
-  def name("5101"), do: {"成都市", "成都"}
-  def name("5227"), do: {"黔南布依族苗族自治州", "黔南"}
-  def name("5226"), do: {"黔东南苗族侗族自治州", "黔东南"}
-  def name("5223"), do: {"黔西南布依族苗族自治州", "黔西南"}
-  def name("5206"), do: {"铜仁市", "铜仁"}
-  def name("5205"), do: {"毕节市", "毕节"}
-  def name("5204"), do: {"安顺市", "安顺"}
-  def name("5203"), do: {"遵义市", "遵义"}
-  def name("5202"), do: {"六盘水市", "六盘水"}
-  def name("5201"), do: {"贵阳市", "贵阳"}
-  def name("5334"), do: {"迪庆藏族自治州", "迪庆"}
-  def name("5333"), do: {"怒江傈僳族自治州", "怒江"}
-  def name("5331"), do: {"德宏傣族景颇族自治州", "德宏"}
-  def name("5329"), do: {"大理白族自治州", "大理"}
-  def name("5328"), do: {"西双版纳傣族自治州", "西双版纳"}
-  def name("5326"), do: {"文山壮族苗族自治州", "文山"}
-  def name("5325"), do: {"红河哈尼族彝族自治州", "红河"}
-  def name("5323"), do: {"楚雄彝族自治州", "楚雄"}
-  def name("5309"), do: {"临沧市", "临沧"}
-  def name("5308"), do: {"普洱市", "普洱"}
-  def name("5307"), do: {"丽江市", "丽江"}
-  def name("5306"), do: {"昭通市", "昭通"}
-  def name("5305"), do: {"保山市", "保山"}
-  def name("5304"), do: {"玉溪市", "玉溪"}
-  def name("5303"), do: {"曲靖市", "曲靖"}
-  def name("5301"), do: {"昆明市", "昆明"}
-  def name("5425"), do: {"阿里地区", "阿里"}
-  def name("5406"), do: {"那曲市", "那曲"}
-  def name("5405"), do: {"山南市", "山南"}
-  def name("5404"), do: {"林芝市", "林芝"}
-  def name("5403"), do: {"昌都市", "昌都"}
-  def name("5402"), do: {"日喀则市", "日喀则"}
-  def name("5401"), do: {"拉萨市", "拉萨"}
-  def name("6110"), do: {"商洛市", "商洛"}
-  def name("6109"), do: {"安康市", "安康"}
-  def name("6108"), do: {"榆林市", "榆林"}
-  def name("6107"), do: {"汉中市", "汉中"}
-  def name("6106"), do: {"延安市", "延安"}
-  def name("6105"), do: {"渭南市", "渭南"}
-  def name("6104"), do: {"咸阳市", "咸阳"}
-  def name("6103"), do: {"宝鸡市", "宝鸡"}
-  def name("6102"), do: {"铜川市", "铜川"}
-  def name("6101"), do: {"西安市", "西安"}
-  def name("6230"), do: {"甘南藏族自治州", "甘南"}
-  def name("6229"), do: {"临夏回族自治州", "临夏"}
-  def name("6212"), do: {"陇南市", "陇南"}
-  def name("6211"), do: {"定西市", "定西"}
-  def name("6210"), do: {"庆阳市", "庆阳"}
-  def name("6209"), do: {"酒泉市", "酒泉"}
-  def name("6208"), do: {"平凉市", "平凉"}
-  def name("6207"), do: {"张掖市", "张掖"}
-  def name("6206"), do: {"武威市", "武威"}
-  def name("6205"), do: {"天水市", "天水"}
-  def name("6204"), do: {"白银市", "白银"}
-  def name("6203"), do: {"金昌市", "金昌"}
-  def name("6202"), do: {"嘉峪关市", "嘉峪关"}
-  def name("6201"), do: {"兰州市", "兰州"}
-  def name("6328"), do: {"海西蒙古族藏族自治州", "海西"}
-  def name("6327"), do: {"玉树藏族自治州", "玉树"}
-  def name("6326"), do: {"果洛藏族自治州", "果洛"}
-  def name("6325"), do: {"海南藏族自治州", "海南"}
-  def name("6323"), do: {"黄南藏族自治州", "黄南"}
-  def name("6322"), do: {"海北藏族自治州", "海北"}
-  def name("6302"), do: {"海东市", "海东"}
-  def name("6301"), do: {"西宁市", "西宁"}
-  def name("6405"), do: {"中卫市", "中卫"}
-  def name("6404"), do: {"固原市", "固原"}
-  def name("6403"), do: {"吴忠市", "吴忠"}
-  def name("6402"), do: {"石嘴山市", "石嘴山"}
-  def name("6401"), do: {"银川市", "银川"}
-  def name("6590"), do: {"新疆维吾尔自治区/自治区直辖县级行政区划", "新疆/自治区直辖县级行政区划"}
-  def name("6543"), do: {"阿勒泰地区", "阿勒泰"}
-  def name("6542"), do: {"塔城地区", "塔城"}
-  def name("6540"), do: {"伊犁哈萨克自治州", "伊犁"}
-  def name("6532"), do: {"和田地区", "和田"}
-  def name("6531"), do: {"喀什地区", "喀什"}
-  def name("6530"), do: {"克孜勒苏柯尔克孜自治州", "克孜勒苏柯尔克孜"}
-  def name("6529"), do: {"阿克苏地区", "阿克苏"}
-  def name("6528"), do: {"巴音郭楞蒙古自治州", "巴音郭楞"}
-  def name("6527"), do: {"博尔塔拉蒙古自治州", "博尔塔拉"}
-  def name("6523"), do: {"昌吉回族自治州", "昌吉"}
-  def name("6505"), do: {"哈密市", "哈密"}
-  def name("6504"), do: {"吐鲁番市", "吐鲁番"}
-  def name("6502"), do: {"克拉玛依市", "克拉玛依"}
-  def name("6501"), do: {"乌鲁木齐市", "乌鲁木齐"}
+  def name("1101"), do: "北京市/市辖区"
+  def name("1201"), do: "天津市/市辖区"
+  def name("1311"), do: "衡水市"
+  def name("1310"), do: "廊坊市"
+  def name("1309"), do: "沧州市"
+  def name("1308"), do: "承德市"
+  def name("1307"), do: "张家口市"
+  def name("1306"), do: "保定市"
+  def name("1305"), do: "邢台市"
+  def name("1304"), do: "邯郸市"
+  def name("1303"), do: "秦皇岛市"
+  def name("1302"), do: "唐山市"
+  def name("1301"), do: "石家庄市"
+  def name("1411"), do: "吕梁市"
+  def name("1410"), do: "临汾市"
+  def name("1409"), do: "忻州市"
+  def name("1408"), do: "运城市"
+  def name("1407"), do: "晋中市"
+  def name("1406"), do: "朔州市"
+  def name("1405"), do: "晋城市"
+  def name("1404"), do: "长治市"
+  def name("1403"), do: "阳泉市"
+  def name("1402"), do: "大同市"
+  def name("1401"), do: "太原市"
+  def name("1529"), do: "阿拉善盟"
+  def name("1525"), do: "锡林郭勒盟"
+  def name("1522"), do: "兴安盟"
+  def name("1509"), do: "乌兰察布市"
+  def name("1508"), do: "巴彦淖尔市"
+  def name("1507"), do: "呼伦贝尔市"
+  def name("1506"), do: "鄂尔多斯市"
+  def name("1505"), do: "通辽市"
+  def name("1504"), do: "赤峰市"
+  def name("1503"), do: "乌海市"
+  def name("1502"), do: "包头市"
+  def name("1501"), do: "呼和浩特市"
+  def name("2114"), do: "葫芦岛市"
+  def name("2113"), do: "朝阳市"
+  def name("2112"), do: "铁岭市"
+  def name("2111"), do: "盘锦市"
+  def name("2110"), do: "辽阳市"
+  def name("2109"), do: "阜新市"
+  def name("2108"), do: "营口市"
+  def name("2107"), do: "锦州市"
+  def name("2106"), do: "丹东市"
+  def name("2105"), do: "本溪市"
+  def name("2104"), do: "抚顺市"
+  def name("2103"), do: "鞍山市"
+  def name("2102"), do: "大连市"
+  def name("2101"), do: "沈阳市"
+  def name("2224"), do: "延边朝鲜族自治州"
+  def name("2208"), do: "白城市"
+  def name("2207"), do: "松原市"
+  def name("2206"), do: "白山市"
+  def name("2205"), do: "通化市"
+  def name("2204"), do: "辽源市"
+  def name("2203"), do: "四平市"
+  def name("2202"), do: "吉林市"
+  def name("2201"), do: "长春市"
+  def name("2327"), do: "大兴安岭地区"
+  def name("2312"), do: "绥化市"
+  def name("2311"), do: "黑河市"
+  def name("2310"), do: "牡丹江市"
+  def name("2309"), do: "七台河市"
+  def name("2308"), do: "佳木斯市"
+  def name("2307"), do: "伊春市"
+  def name("2306"), do: "大庆市"
+  def name("2305"), do: "双鸭山市"
+  def name("2304"), do: "鹤岗市"
+  def name("2303"), do: "鸡西市"
+  def name("2302"), do: "齐齐哈尔市"
+  def name("2301"), do: "哈尔滨市"
+  def name("3101"), do: "上海市/市辖区"
+  def name("3213"), do: "宿迁市"
+  def name("3212"), do: "泰州市"
+  def name("3211"), do: "镇江市"
+  def name("3210"), do: "扬州市"
+  def name("3209"), do: "盐城市"
+  def name("3208"), do: "淮安市"
+  def name("3207"), do: "连云港市"
+  def name("3206"), do: "南通市"
+  def name("3205"), do: "苏州市"
+  def name("3204"), do: "常州市"
+  def name("3203"), do: "徐州市"
+  def name("3202"), do: "无锡市"
+  def name("3201"), do: "南京市"
+  def name("3311"), do: "丽水市"
+  def name("3310"), do: "台州市"
+  def name("3309"), do: "舟山市"
+  def name("3308"), do: "衢州市"
+  def name("3307"), do: "金华市"
+  def name("3306"), do: "绍兴市"
+  def name("3305"), do: "湖州市"
+  def name("3304"), do: "嘉兴市"
+  def name("3303"), do: "温州市"
+  def name("3302"), do: "宁波市"
+  def name("3301"), do: "杭州市"
+  def name("3418"), do: "宣城市"
+  def name("3417"), do: "池州市"
+  def name("3416"), do: "亳州市"
+  def name("3415"), do: "六安市"
+  def name("3413"), do: "宿州市"
+  def name("3412"), do: "阜阳市"
+  def name("3411"), do: "滁州市"
+  def name("3410"), do: "黄山市"
+  def name("3408"), do: "安庆市"
+  def name("3407"), do: "铜陵市"
+  def name("3406"), do: "淮北市"
+  def name("3405"), do: "马鞍山市"
+  def name("3404"), do: "淮南市"
+  def name("3403"), do: "蚌埠市"
+  def name("3402"), do: "芜湖市"
+  def name("3401"), do: "合肥市"
+  def name("3509"), do: "宁德市"
+  def name("3508"), do: "龙岩市"
+  def name("3507"), do: "南平市"
+  def name("3506"), do: "漳州市"
+  def name("3505"), do: "泉州市"
+  def name("3504"), do: "三明市"
+  def name("3503"), do: "莆田市"
+  def name("3502"), do: "厦门市"
+  def name("3501"), do: "福州市"
+  def name("3611"), do: "上饶市"
+  def name("3610"), do: "抚州市"
+  def name("3609"), do: "宜春市"
+  def name("3608"), do: "吉安市"
+  def name("3607"), do: "赣州市"
+  def name("3606"), do: "鹰潭市"
+  def name("3605"), do: "新余市"
+  def name("3604"), do: "九江市"
+  def name("3603"), do: "萍乡市"
+  def name("3602"), do: "景德镇市"
+  def name("3601"), do: "南昌市"
+  def name("3717"), do: "菏泽市"
+  def name("3716"), do: "滨州市"
+  def name("3715"), do: "聊城市"
+  def name("3714"), do: "德州市"
+  def name("3713"), do: "临沂市"
+  def name("3711"), do: "日照市"
+  def name("3710"), do: "威海市"
+  def name("3709"), do: "泰安市"
+  def name("3708"), do: "济宁市"
+  def name("3707"), do: "潍坊市"
+  def name("3706"), do: "烟台市"
+  def name("3705"), do: "东营市"
+  def name("3704"), do: "枣庄市"
+  def name("3703"), do: "淄博市"
+  def name("3702"), do: "青岛市"
+  def name("3701"), do: "济南市"
+  def name("4190"), do: "河南省/省直辖县级行政区划"
+  def name("4117"), do: "驻马店市"
+  def name("4116"), do: "周口市"
+  def name("4115"), do: "信阳市"
+  def name("4114"), do: "商丘市"
+  def name("4113"), do: "南阳市"
+  def name("4112"), do: "三门峡市"
+  def name("4111"), do: "漯河市"
+  def name("4110"), do: "许昌市"
+  def name("4109"), do: "濮阳市"
+  def name("4108"), do: "焦作市"
+  def name("4107"), do: "新乡市"
+  def name("4106"), do: "鹤壁市"
+  def name("4105"), do: "安阳市"
+  def name("4104"), do: "平顶山市"
+  def name("4103"), do: "洛阳市"
+  def name("4102"), do: "开封市"
+  def name("4101"), do: "郑州市"
+  def name("4290"), do: "湖北省/省直辖县级行政区划"
+  def name("4228"), do: "恩施土家族苗族自治州"
+  def name("4213"), do: "随州市"
+  def name("4212"), do: "咸宁市"
+  def name("4211"), do: "黄冈市"
+  def name("4210"), do: "荆州市"
+  def name("4209"), do: "孝感市"
+  def name("4208"), do: "荆门市"
+  def name("4207"), do: "鄂州市"
+  def name("4206"), do: "襄阳市"
+  def name("4205"), do: "宜昌市"
+  def name("4203"), do: "十堰市"
+  def name("4202"), do: "黄石市"
+  def name("4201"), do: "武汉市"
+  def name("4331"), do: "湘西土家族苗族自治州"
+  def name("4313"), do: "娄底市"
+  def name("4312"), do: "怀化市"
+  def name("4311"), do: "永州市"
+  def name("4310"), do: "郴州市"
+  def name("4309"), do: "益阳市"
+  def name("4308"), do: "张家界市"
+  def name("4307"), do: "常德市"
+  def name("4306"), do: "岳阳市"
+  def name("4305"), do: "邵阳市"
+  def name("4304"), do: "衡阳市"
+  def name("4303"), do: "湘潭市"
+  def name("4302"), do: "株洲市"
+  def name("4301"), do: "长沙市"
+  def name("4453"), do: "云浮市"
+  def name("4452"), do: "揭阳市"
+  def name("4451"), do: "潮州市"
+  def name("4420"), do: "中山市"
+  def name("4419"), do: "东莞市"
+  def name("4418"), do: "清远市"
+  def name("4417"), do: "阳江市"
+  def name("4416"), do: "河源市"
+  def name("4415"), do: "汕尾市"
+  def name("4414"), do: "梅州市"
+  def name("4413"), do: "惠州市"
+  def name("4412"), do: "肇庆市"
+  def name("4409"), do: "茂名市"
+  def name("4408"), do: "湛江市"
+  def name("4407"), do: "江门市"
+  def name("4406"), do: "佛山市"
+  def name("4405"), do: "汕头市"
+  def name("4404"), do: "珠海市"
+  def name("4403"), do: "深圳市"
+  def name("4402"), do: "韶关市"
+  def name("4401"), do: "广州市"
+  def name("4514"), do: "崇左市"
+  def name("4513"), do: "来宾市"
+  def name("4512"), do: "河池市"
+  def name("4511"), do: "贺州市"
+  def name("4510"), do: "百色市"
+  def name("4509"), do: "玉林市"
+  def name("4508"), do: "贵港市"
+  def name("4507"), do: "钦州市"
+  def name("4506"), do: "防城港市"
+  def name("4505"), do: "北海市"
+  def name("4504"), do: "梧州市"
+  def name("4503"), do: "桂林市"
+  def name("4502"), do: "柳州市"
+  def name("4501"), do: "南宁市"
+  def name("4690"), do: "海南省/省直辖县级行政区划"
+  def name("4604"), do: "儋州市"
+  def name("4603"), do: "三沙市"
+  def name("4602"), do: "三亚市"
+  def name("4601"), do: "海口市"
+  def name("5002"), do: "重庆市/县"
+  def name("5001"), do: "重庆市/市辖区"
+  def name("5134"), do: "凉山彝族自治州"
+  def name("5133"), do: "甘孜藏族自治州"
+  def name("5132"), do: "阿坝藏族羌族自治州"
+  def name("5120"), do: "资阳市"
+  def name("5119"), do: "巴中市"
+  def name("5118"), do: "雅安市"
+  def name("5117"), do: "达州市"
+  def name("5116"), do: "广安市"
+  def name("5115"), do: "宜宾市"
+  def name("5114"), do: "眉山市"
+  def name("5113"), do: "南充市"
+  def name("5111"), do: "乐山市"
+  def name("5110"), do: "内江市"
+  def name("5109"), do: "遂宁市"
+  def name("5108"), do: "广元市"
+  def name("5107"), do: "绵阳市"
+  def name("5106"), do: "德阳市"
+  def name("5105"), do: "泸州市"
+  def name("5104"), do: "攀枝花市"
+  def name("5103"), do: "自贡市"
+  def name("5101"), do: "成都市"
+  def name("5227"), do: "黔南布依族苗族自治州"
+  def name("5226"), do: "黔东南苗族侗族自治州"
+  def name("5223"), do: "黔西南布依族苗族自治州"
+  def name("5206"), do: "铜仁市"
+  def name("5205"), do: "毕节市"
+  def name("5204"), do: "安顺市"
+  def name("5203"), do: "遵义市"
+  def name("5202"), do: "六盘水市"
+  def name("5201"), do: "贵阳市"
+  def name("5334"), do: "迪庆藏族自治州"
+  def name("5333"), do: "怒江傈僳族自治州"
+  def name("5331"), do: "德宏傣族景颇族自治州"
+  def name("5329"), do: "大理白族自治州"
+  def name("5328"), do: "西双版纳傣族自治州"
+  def name("5326"), do: "文山壮族苗族自治州"
+  def name("5325"), do: "红河哈尼族彝族自治州"
+  def name("5323"), do: "楚雄彝族自治州"
+  def name("5309"), do: "临沧市"
+  def name("5308"), do: "普洱市"
+  def name("5307"), do: "丽江市"
+  def name("5306"), do: "昭通市"
+  def name("5305"), do: "保山市"
+  def name("5304"), do: "玉溪市"
+  def name("5303"), do: "曲靖市"
+  def name("5301"), do: "昆明市"
+  def name("5425"), do: "阿里地区"
+  def name("5406"), do: "那曲市"
+  def name("5405"), do: "山南市"
+  def name("5404"), do: "林芝市"
+  def name("5403"), do: "昌都市"
+  def name("5402"), do: "日喀则市"
+  def name("5401"), do: "拉萨市"
+  def name("6110"), do: "商洛市"
+  def name("6109"), do: "安康市"
+  def name("6108"), do: "榆林市"
+  def name("6107"), do: "汉中市"
+  def name("6106"), do: "延安市"
+  def name("6105"), do: "渭南市"
+  def name("6104"), do: "咸阳市"
+  def name("6103"), do: "宝鸡市"
+  def name("6102"), do: "铜川市"
+  def name("6101"), do: "西安市"
+  def name("6230"), do: "甘南藏族自治州"
+  def name("6229"), do: "临夏回族自治州"
+  def name("6212"), do: "陇南市"
+  def name("6211"), do: "定西市"
+  def name("6210"), do: "庆阳市"
+  def name("6209"), do: "酒泉市"
+  def name("6208"), do: "平凉市"
+  def name("6207"), do: "张掖市"
+  def name("6206"), do: "武威市"
+  def name("6205"), do: "天水市"
+  def name("6204"), do: "白银市"
+  def name("6203"), do: "金昌市"
+  def name("6202"), do: "嘉峪关市"
+  def name("6201"), do: "兰州市"
+  def name("6328"), do: "海西蒙古族藏族自治州"
+  def name("6327"), do: "玉树藏族自治州"
+  def name("6326"), do: "果洛藏族自治州"
+  def name("6325"), do: "海南藏族自治州"
+  def name("6323"), do: "黄南藏族自治州"
+  def name("6322"), do: "海北藏族自治州"
+  def name("6302"), do: "海东市"
+  def name("6301"), do: "西宁市"
+  def name("6405"), do: "中卫市"
+  def name("6404"), do: "固原市"
+  def name("6403"), do: "吴忠市"
+  def name("6402"), do: "石嘴山市"
+  def name("6401"), do: "银川市"
+  def name("6590"), do: "新疆维吾尔自治区/自治区直辖县级行政区划"
+  def name("6543"), do: "阿勒泰地区"
+  def name("6542"), do: "塔城地区"
+  def name("6540"), do: "伊犁哈萨克自治州"
+  def name("6532"), do: "和田地区"
+  def name("6531"), do: "喀什地区"
+  def name("6530"), do: "克孜勒苏柯尔克孜自治州"
+  def name("6529"), do: "阿克苏地区"
+  def name("6528"), do: "巴音郭楞蒙古自治州"
+  def name("6527"), do: "博尔塔拉蒙古自治州"
+  def name("6523"), do: "昌吉回族自治州"
+  def name("6505"), do: "哈密市"
+  def name("6504"), do: "吐鲁番市"
+  def name("6502"), do: "克拉玛依市"
+  def name("6501"), do: "乌鲁木齐市"
   def name(_unknown), do: nil
 
   def next(input) when input == "北京市/市辖区" or input == "北京/市辖区" or input == "1101",

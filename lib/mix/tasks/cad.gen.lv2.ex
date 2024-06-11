@@ -50,11 +50,16 @@ defmodule Mix.Tasks.Cad.Gen.Lv2 do
             {lv3_items, lv3_4_items, lv4_items} =
               Enum.reduce(lv2_item["children"], {[], [], []}, fn item, {lv3_acc, lv3_4_acc, lv4_acc} ->
                 lv3_name = item["name"]
+                #lv3_code = String.pad_trailing(item["code"]
                 lv3_code = item["code"]
 
-                lv4_items =
-                  Enum.map(item["children"], fn item ->
-                    ~s{%\{"name" => "#{item["name"]}", "code" => "#{item["code"]}"\}}
+                {lv4_str_items, lv4_items} =
+                  Enum.reduce(item["children"], {[], []}, fn item, {l4si, l4i} ->
+                    formatted_code = String.pad_trailing(item["code"], 12, "0")
+                    {
+                      [~s{%\{"name" => "#{item["name"]}", "code" => "#{formatted_code}"\}} | l4si],
+                      [Map.put(item, "code", formatted_code) | l4i]
+                    }
                   end)
 
                 {
@@ -63,10 +68,10 @@ defmodule Mix.Tasks.Cad.Gen.Lv2 do
                     %{
                       "lv3_name" => lv3_name,
                       "lv3_code" => lv3_code,
-                      "lv4_items" => lv4_items
+                      "lv4_items" => Enum.reverse(lv4_str_items)
                     } | lv3_4_acc
                   ],
-                  [item["children"] | lv4_acc],
+                  [Enum.reverse(lv4_items) | lv4_acc],
                 }
               end)
 
@@ -137,10 +142,15 @@ defmodule Mix.Tasks.Cad.Gen.Lv2 do
 
     source = "priv/templates/cad_gen/lv1s.ex"
     target = "lib/gen/lv1s.ex"
+    lv1_items = Enum.reverse(lv1_items)
+    lv1_str_items = Enum.map(lv1_items, fn item ->
+      ~s{%\{"name" => "#{item["name"]}", "code" => "#{item["code"]}"\}}
+    end) |> Enum.join(", ")
     file_content =
       source
       |> EEx.eval_file(context: %{
-        lv1_items: Enum.reverse(lv1_items),
+        lv1_items: lv1_items,
+        lv1_str_items: lv1_str_items,
         lv1_2_items: lv1lv2_items,
         lv1_name_shorter: &Helper.make_lv1_name_shorter/1,
         #lv2_name_shorter: &Helper.make_lv2_name_shorter/1,

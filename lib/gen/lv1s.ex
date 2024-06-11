@@ -35,37 +35,37 @@ defmodule ChinaAdminDivisions.Gen.Lv1s do
   def code(name) when name == "新疆维吾尔自治区" or name == "新疆", do: "65"
   def code(_unknown), do: nil
 
-  def name("11"), do: {"北京市", "北京"}
-  def name("12"), do: {"天津市", "天津"}
-  def name("13"), do: {"河北省", "河北"}
-  def name("14"), do: {"山西省", "山西"}
-  def name("15"), do: {"内蒙古自治区", "内蒙古"}
-  def name("21"), do: {"辽宁省", "辽宁"}
-  def name("22"), do: {"吉林省", "吉林"}
-  def name("23"), do: {"黑龙江省", "黑龙江"}
-  def name("31"), do: {"上海市", "上海"}
-  def name("32"), do: {"江苏省", "江苏"}
-  def name("33"), do: {"浙江省", "浙江"}
-  def name("34"), do: {"安徽省", "安徽"}
-  def name("35"), do: {"福建省", "福建"}
-  def name("36"), do: {"江西省", "江西"}
-  def name("37"), do: {"山东省", "山东"}
-  def name("41"), do: {"河南省", "河南"}
-  def name("42"), do: {"湖北省", "湖北"}
-  def name("43"), do: {"湖南省", "湖南"}
-  def name("44"), do: {"广东省", "广东"}
-  def name("45"), do: {"广西壮族自治区", "广西"}
-  def name("46"), do: {"海南省", "海南"}
-  def name("50"), do: {"重庆市", "重庆"}
-  def name("51"), do: {"四川省", "四川"}
-  def name("52"), do: {"贵州省", "贵州"}
-  def name("53"), do: {"云南省", "云南"}
-  def name("54"), do: {"西藏自治区", "西藏"}
-  def name("61"), do: {"陕西省", "陕西"}
-  def name("62"), do: {"甘肃省", "甘肃"}
-  def name("63"), do: {"青海省", "青海"}
-  def name("64"), do: {"宁夏回族自治区", "宁夏"}
-  def name("65"), do: {"新疆维吾尔自治区", "新疆"}
+  def name("11"), do: "北京市"
+  def name("12"), do: "天津市"
+  def name("13"), do: "河北省"
+  def name("14"), do: "山西省"
+  def name("15"), do: "内蒙古自治区"
+  def name("21"), do: "辽宁省"
+  def name("22"), do: "吉林省"
+  def name("23"), do: "黑龙江省"
+  def name("31"), do: "上海市"
+  def name("32"), do: "江苏省"
+  def name("33"), do: "浙江省"
+  def name("34"), do: "安徽省"
+  def name("35"), do: "福建省"
+  def name("36"), do: "江西省"
+  def name("37"), do: "山东省"
+  def name("41"), do: "河南省"
+  def name("42"), do: "湖北省"
+  def name("43"), do: "湖南省"
+  def name("44"), do: "广东省"
+  def name("45"), do: "广西壮族自治区"
+  def name("46"), do: "海南省"
+  def name("50"), do: "重庆市"
+  def name("51"), do: "四川省"
+  def name("52"), do: "贵州省"
+  def name("53"), do: "云南省"
+  def name("54"), do: "西藏自治区"
+  def name("61"), do: "陕西省"
+  def name("62"), do: "甘肃省"
+  def name("63"), do: "青海省"
+  def name("64"), do: "宁夏回族自治区"
+  def name("65"), do: "新疆维吾尔自治区"
   def name(_unknown), do: nil
 
   def names(),
@@ -171,6 +171,41 @@ defmodule ChinaAdminDivisions.Gen.Lv1s do
       "63",
       "64",
       "65"
+    ]
+
+  def items(),
+    do: [
+      %{"name" => "北京市", "code" => "11"},
+      %{"name" => "天津市", "code" => "12"},
+      %{"name" => "河北省", "code" => "13"},
+      %{"name" => "山西省", "code" => "14"},
+      %{"name" => "内蒙古自治区", "code" => "15"},
+      %{"name" => "辽宁省", "code" => "21"},
+      %{"name" => "吉林省", "code" => "22"},
+      %{"name" => "黑龙江省", "code" => "23"},
+      %{"name" => "上海市", "code" => "31"},
+      %{"name" => "江苏省", "code" => "32"},
+      %{"name" => "浙江省", "code" => "33"},
+      %{"name" => "安徽省", "code" => "34"},
+      %{"name" => "福建省", "code" => "35"},
+      %{"name" => "江西省", "code" => "36"},
+      %{"name" => "山东省", "code" => "37"},
+      %{"name" => "河南省", "code" => "41"},
+      %{"name" => "湖北省", "code" => "42"},
+      %{"name" => "湖南省", "code" => "43"},
+      %{"name" => "广东省", "code" => "44"},
+      %{"name" => "广西壮族自治区", "code" => "45"},
+      %{"name" => "海南省", "code" => "46"},
+      %{"name" => "重庆市", "code" => "50"},
+      %{"name" => "四川省", "code" => "51"},
+      %{"name" => "贵州省", "code" => "52"},
+      %{"name" => "云南省", "code" => "53"},
+      %{"name" => "西藏自治区", "code" => "54"},
+      %{"name" => "陕西省", "code" => "61"},
+      %{"name" => "甘肃省", "code" => "62"},
+      %{"name" => "青海省", "code" => "63"},
+      %{"name" => "宁夏回族自治区", "code" => "64"},
+      %{"name" => "新疆维吾尔自治区", "code" => "65"}
     ]
 
   def next(input)
