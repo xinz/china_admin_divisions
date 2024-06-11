@@ -9,7 +9,7 @@ defmodule ChinaAdminDivisions.Gen.Lv2d do
   def code(_unknown), do: nil
 
 <%= for item <- context.lv2_3_items do %>
-  def name("<%= item["lv2_code"] %>"), do: {"<%= item["lv2_name"] %>", "<%= item["lv2_shorter_name"] %>"}<% end %>
+  def name("<%= item["lv2_code"] %>"), do: "<%= item["lv2_name"] %>"<% end %>
   def name(_unknown), do: nil
 
 <%= for item <- context.lv2_3_items do %>

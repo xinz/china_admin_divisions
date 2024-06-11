@@ -7,13 +7,15 @@ defmodule ChinaAdminDivisions.Gen.Lv1s do
   def code(_unknown), do: nil
 
 <%= for item <- context.lv1_items do %>
-  def name("<%= item["code"] %>"), do: {"<%= item["name"] %>", "<%= context.lv1_name_shorter.(item["name"]) %>"}<% end %>
+  def name("<%= item["code"] %>"), do: "<%= item["name"] %>"<% end %>
   def name(_unknown), do: nil
 
   <% {names, shorter_names, codes} = context.group_set %>
   def names(), do: <%= Jason.encode!(names) %>
   def shorter_names(), do: <%= Jason.encode!(shorter_names) %>
   def codes(), do: <%= Jason.encode!(codes) %>
+
+  def items(), do: [<%= context.lv1_str_items %>]
 
 <%= for item <- context.lv1_2_items do %>
   def next(input)
