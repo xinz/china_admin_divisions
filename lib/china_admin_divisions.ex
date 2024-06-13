@@ -6,9 +6,9 @@ defmodule ChinaAdminDivisions do
   alias Gen.{Lv1s, Lv2d, Lv3x, Lv4xg}
 
   defguardp is_code?(x) when x in ?0..?9
-  defguardp is_4digits_code?(c1, c2, c3, c4) when is_code?(c1) and is_code?(c2) and is_code?(c3) and is_code?(c4)
-  defguardp is_6digits_code?(c1, c2, c3, c4, c5, c6) when is_4digits_code?(c1, c2, c3, c4) and is_code?(c5) and is_code?(c6)
-  defguardp is_12digits_code?(c1, c2, c3, c4, c5, c6, c7, c8, c9, c10, c11, c12) when is_6digits_code?(c1, c2, c3, c4, c5, c6) and is_6digits_code?(c7, c8, c9, c10, c11, c12)
+  defguardp is_code?(c1, c2, c3, c4) when is_code?(c1) and is_code?(c2) and is_code?(c3) and is_code?(c4)
+  defguardp is_code?(c1, c2, c3, c4, c5, c6) when is_code?(c1, c2, c3, c4) and is_code?(c5) and is_code?(c6)
+  defguardp is_code?(c1, c2, c3, c4, c5, c6, c7, c8, c9, c10, c11, c12) when is_code?(c1, c2, c3, c4, c5, c6) and is_code?(c7, c8, c9, c10, c11, c12)
 
   @doc """
   Fetch the first level administrative divisions.
@@ -145,8 +145,8 @@ defmodule ChinaAdminDivisions do
   """
   @spec items(input :: String.t()) :: list() | nil
   def items(<<_::8, _::8>> = input), do: Lv1s.next(input)
-  def items(<<c1::8, c2::8, c3::8, c4::8>> = input) when is_4digits_code?(c1, c2, c3, c4), do: Lv2d.next(input)
-  def items(<<c1::8, c2::8, c3::8, c4::8, c5::8, c6::8>> = input) when is_6digits_code?(c1, c2, c3, c4, c5, c6), do: Lv3x.next(input)
+  def items(<<c1::8, c2::8, c3::8, c4::8>> = input) when is_code?(c1, c2, c3, c4), do: Lv2d.next(input)
+  def items(<<c1::8, c2::8, c3::8, c4::8, c5::8, c6::8>> = input) when is_code?(c1, c2, c3, c4, c5, c6), do: Lv3x.next(input)
   def items(input) when byte_size(input) >= 6 do
     # for Chinese characters
     Lv1s.next(input) || Lv2d.next(input) || Lv3x.next(input)
@@ -171,9 +171,9 @@ defmodule ChinaAdminDivisions do
   """
   @spec name(code :: String.t()) :: String.t() | nil
   def name(<<_::8, _::8>> = code), do: Lv1s.name(code)
-  def name(<<c1::8, c2::8, c3::8, c4::8>> = code) when is_4digits_code?(c1, c2, c3, c4), do: Lv2d.name(code)
-  def name(<<c1::8, c2::8, c3::8, c4::8, c5::8, c6::8>> = code) when is_6digits_code?(c1, c2, c3, c4, c5, c6), do: Lv3x.name(code)
-  def name(<<c1::8, c2::8, c3::8, c4::8, c5::8, c6::8, c7::8, c8::8, c9::8, c10::8, c11::8, c12::8>> = code) when is_12digits_code?(c1, c2, c3, c4, c5, c6, c7, c8, c9, c10, c11, c12) do
+  def name(<<c1::8, c2::8, c3::8, c4::8>> = code) when is_code?(c1, c2, c3, c4), do: Lv2d.name(code)
+  def name(<<c1::8, c2::8, c3::8, c4::8, c5::8, c6::8>> = code) when is_code?(c1, c2, c3, c4, c5, c6), do: Lv3x.name(code)
+  def name(<<c1::8, c2::8, c3::8, c4::8, c5::8, c6::8, c7::8, c8::8, c9::8, c10::8, c11::8, c12::8>> = code) when is_code?(c1, c2, c3, c4, c5, c6, c7, c8, c9, c10, c11, c12) do
     lv4gx_module(<<c1, c2, c3, c4>>).name(code)
   end
   def name(_), do: nil
@@ -224,7 +224,7 @@ defmodule ChinaAdminDivisions do
     name = Lv1s.name(code)
     if name == nil, do: nil, else: [name]
   end
-  def expand(<<c1::8, c2::8, c3::8, c4::8>> = code) when is_4digits_code?(c1, c2, c3, c4) do
+  def expand(<<c1::8, c2::8, c3::8, c4::8>> = code) when is_code?(c1, c2, c3, c4) do
     with lv1_name when lv1_name != nil <- Lv1s.name(<<c1, c2>>),
          lv2_name when lv2_name != nil <- Lv2d.name(code) do
       [lv1_name, lv2_name]
@@ -233,7 +233,7 @@ defmodule ChinaAdminDivisions do
         nil
     end
   end
-  def expand(<<c1::8, c2::8, c3::8, c4::8, c5::8, c6::8>> = code) when is_6digits_code?(c1, c2, c3, c4, c5, c6) do
+  def expand(<<c1::8, c2::8, c3::8, c4::8, c5::8, c6::8>> = code) when is_code?(c1, c2, c3, c4, c5, c6) do
     with [lv1_name, lv2_name] <- expand(<<c1, c2, c3, c4>>),
          lv3_name when lv3_name != nil <- Lv3x.name(code) do
       [lv1_name, lv2_name, lv3_name]
@@ -242,7 +242,7 @@ defmodule ChinaAdminDivisions do
         nil
     end
   end
-  def expand(<<c1::8, c2::8, c3::8, c4::8, c5::8, c6::8, c7::8, c8::8, c9::8, c10::8, c11::8, c12::8>> = code) when is_12digits_code?(c1, c2, c3, c4, c5, c6, c7, c8, c9, c10, c11, c12) do
+  def expand(<<c1::8, c2::8, c3::8, c4::8, c5::8, c6::8, c7::8, c8::8, c9::8, c10::8, c11::8, c12::8>> = code) when is_code?(c1, c2, c3, c4, c5, c6, c7, c8, c9, c10, c11, c12) do
     with [lv1_name, lv2_name, lv3_name] <- expand(<<c1, c2, c3, c4, c5, c6>>),
          lv4_name when lv4_name != nil <- lv4gx_module(<<c1, c2, c3, c4>>).name(code) do
       [lv1_name, lv2_name, lv3_name, lv4_name]
