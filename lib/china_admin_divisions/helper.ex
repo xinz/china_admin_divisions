@@ -15,4 +15,18 @@ defmodule ChinaAdminDivisions.Helper do
     String.replace(name, ["土家族苗族自治县"], "")
   end
 
+  @special_lv2_names ["市辖区", "县", "省直辖县级行政区划", "自治区直辖县级行政区划"]
+
+  # 11
+  # 市辖区，见：https://www.stats.gov.cn/sj/tjbz/tjyqhdmhcxhfdm/2023/11.html
+  # 50
+  # 重庆市下属区分"市辖区"和"县", 见：https://www.stats.gov.cn/sj/tjbz/tjyqhdmhcxhfdm/2023/50.html
+  # 4290
+  # 省直辖县级行政区划, 见：https://www.stats.gov.cn/sj/tjbz/tjyqhdmhcxhfdm/2023/42.html
+  # 6590
+  # 自治区直辖县级行政区划, 见：https://www.stats.gov.cn/sj/tjbz/tjyqhdmhcxhfdm/2023/65.html
+  #
+  def lv2_name_can_skip_to_next?(name) when name in @special_lv2_names, do: true
+  def lv2_name_can_skip_to_next?(_), do: false
+
 end

@@ -2,176 +2,71 @@ defmodule ChinaAdminDivisions.Gen.Lv1s do
   @moduledoc false
   # 省级
 
-  def code(name) when name == "北京市" or name == "北京", do: "11"
-  def code(name) when name == "天津市" or name == "天津", do: "12"
-  def code(name) when name == "河北省" or name == "河北", do: "13"
-  def code(name) when name == "山西省" or name == "山西", do: "14"
-  def code(name) when name == "内蒙古自治区" or name == "内蒙古", do: "15"
-  def code(name) when name == "辽宁省" or name == "辽宁", do: "21"
-  def code(name) when name == "吉林省" or name == "吉林", do: "22"
-  def code(name) when name == "黑龙江省" or name == "黑龙江", do: "23"
-  def code(name) when name == "上海市" or name == "上海", do: "31"
-  def code(name) when name == "江苏省" or name == "江苏", do: "32"
-  def code(name) when name == "浙江省" or name == "浙江", do: "33"
-  def code(name) when name == "安徽省" or name == "安徽", do: "34"
-  def code(name) when name == "福建省" or name == "福建", do: "35"
-  def code(name) when name == "江西省" or name == "江西", do: "36"
-  def code(name) when name == "山东省" or name == "山东", do: "37"
-  def code(name) when name == "河南省" or name == "河南", do: "41"
-  def code(name) when name == "湖北省" or name == "湖北", do: "42"
-  def code(name) when name == "湖南省" or name == "湖南", do: "43"
-  def code(name) when name == "广东省" or name == "广东", do: "44"
-  def code(name) when name == "广西壮族自治区" or name == "广西", do: "45"
-  def code(name) when name == "海南省" or name == "海南", do: "46"
-  def code(name) when name == "重庆市" or name == "重庆", do: "50"
-  def code(name) when name == "四川省" or name == "四川", do: "51"
-  def code(name) when name == "贵州省" or name == "贵州", do: "52"
-  def code(name) when name == "云南省" or name == "云南", do: "53"
-  def code(name) when name == "西藏自治区" or name == "西藏", do: "54"
-  def code(name) when name == "陕西省" or name == "陕西", do: "61"
-  def code(name) when name == "甘肃省" or name == "甘肃", do: "62"
-  def code(name) when name == "青海省" or name == "青海", do: "63"
-  def code(name) when name == "宁夏回族自治区" or name == "宁夏", do: "64"
   def code(name) when name == "新疆维吾尔自治区" or name == "新疆", do: "65"
+  def code(name) when name == "宁夏回族自治区" or name == "宁夏", do: "64"
+  def code(name) when name == "青海省" or name == "青海", do: "63"
+  def code(name) when name == "甘肃省" or name == "甘肃", do: "62"
+  def code(name) when name == "陕西省" or name == "陕西", do: "61"
+  def code(name) when name == "西藏自治区" or name == "西藏", do: "54"
+  def code(name) when name == "云南省" or name == "云南", do: "53"
+  def code(name) when name == "贵州省" or name == "贵州", do: "52"
+  def code(name) when name == "四川省" or name == "四川", do: "51"
+  def code(name) when name == "重庆市" or name == "重庆", do: "50"
+  def code(name) when name == "海南省" or name == "海南", do: "46"
+  def code(name) when name == "广西壮族自治区" or name == "广西", do: "45"
+  def code(name) when name == "广东省" or name == "广东", do: "44"
+  def code(name) when name == "湖南省" or name == "湖南", do: "43"
+  def code(name) when name == "湖北省" or name == "湖北", do: "42"
+  def code(name) when name == "河南省" or name == "河南", do: "41"
+  def code(name) when name == "山东省" or name == "山东", do: "37"
+  def code(name) when name == "江西省" or name == "江西", do: "36"
+  def code(name) when name == "福建省" or name == "福建", do: "35"
+  def code(name) when name == "安徽省" or name == "安徽", do: "34"
+  def code(name) when name == "浙江省" or name == "浙江", do: "33"
+  def code(name) when name == "江苏省" or name == "江苏", do: "32"
+  def code(name) when name == "上海市" or name == "上海", do: "31"
+  def code(name) when name == "黑龙江省" or name == "黑龙江", do: "23"
+  def code(name) when name == "吉林省" or name == "吉林", do: "22"
+  def code(name) when name == "辽宁省" or name == "辽宁", do: "21"
+  def code(name) when name == "内蒙古自治区" or name == "内蒙古", do: "15"
+  def code(name) when name == "山西省" or name == "山西", do: "14"
+  def code(name) when name == "河北省" or name == "河北", do: "13"
+  def code(name) when name == "天津市" or name == "天津", do: "12"
+  def code(name) when name == "北京市" or name == "北京", do: "11"
   def code(_unknown), do: nil
 
-  def name("11"), do: "北京市"
-  def name("12"), do: "天津市"
-  def name("13"), do: "河北省"
-  def name("14"), do: "山西省"
-  def name("15"), do: "内蒙古自治区"
-  def name("21"), do: "辽宁省"
-  def name("22"), do: "吉林省"
-  def name("23"), do: "黑龙江省"
-  def name("31"), do: "上海市"
-  def name("32"), do: "江苏省"
-  def name("33"), do: "浙江省"
-  def name("34"), do: "安徽省"
-  def name("35"), do: "福建省"
-  def name("36"), do: "江西省"
-  def name("37"), do: "山东省"
-  def name("41"), do: "河南省"
-  def name("42"), do: "湖北省"
-  def name("43"), do: "湖南省"
-  def name("44"), do: "广东省"
-  def name("45"), do: "广西壮族自治区"
-  def name("46"), do: "海南省"
-  def name("50"), do: "重庆市"
-  def name("51"), do: "四川省"
-  def name("52"), do: "贵州省"
-  def name("53"), do: "云南省"
-  def name("54"), do: "西藏自治区"
-  def name("61"), do: "陕西省"
-  def name("62"), do: "甘肃省"
-  def name("63"), do: "青海省"
-  def name("64"), do: "宁夏回族自治区"
   def name("65"), do: "新疆维吾尔自治区"
+  def name("64"), do: "宁夏回族自治区"
+  def name("63"), do: "青海省"
+  def name("62"), do: "甘肃省"
+  def name("61"), do: "陕西省"
+  def name("54"), do: "西藏自治区"
+  def name("53"), do: "云南省"
+  def name("52"), do: "贵州省"
+  def name("51"), do: "四川省"
+  def name("50"), do: "重庆市"
+  def name("46"), do: "海南省"
+  def name("45"), do: "广西壮族自治区"
+  def name("44"), do: "广东省"
+  def name("43"), do: "湖南省"
+  def name("42"), do: "湖北省"
+  def name("41"), do: "河南省"
+  def name("37"), do: "山东省"
+  def name("36"), do: "江西省"
+  def name("35"), do: "福建省"
+  def name("34"), do: "安徽省"
+  def name("33"), do: "浙江省"
+  def name("32"), do: "江苏省"
+  def name("31"), do: "上海市"
+  def name("23"), do: "黑龙江省"
+  def name("22"), do: "吉林省"
+  def name("21"), do: "辽宁省"
+  def name("15"), do: "内蒙古自治区"
+  def name("14"), do: "山西省"
+  def name("13"), do: "河北省"
+  def name("12"), do: "天津市"
+  def name("11"), do: "北京市"
   def name(_unknown), do: nil
-
-  def names(),
-    do: [
-      "北京市",
-      "天津市",
-      "河北省",
-      "山西省",
-      "内蒙古自治区",
-      "辽宁省",
-      "吉林省",
-      "黑龙江省",
-      "上海市",
-      "江苏省",
-      "浙江省",
-      "安徽省",
-      "福建省",
-      "江西省",
-      "山东省",
-      "河南省",
-      "湖北省",
-      "湖南省",
-      "广东省",
-      "广西壮族自治区",
-      "海南省",
-      "重庆市",
-      "四川省",
-      "贵州省",
-      "云南省",
-      "西藏自治区",
-      "陕西省",
-      "甘肃省",
-      "青海省",
-      "宁夏回族自治区",
-      "新疆维吾尔自治区"
-    ]
-
-  def shorter_names(),
-    do: [
-      "北京",
-      "天津",
-      "河北",
-      "山西",
-      "内蒙古",
-      "辽宁",
-      "吉林",
-      "黑龙江",
-      "上海",
-      "江苏",
-      "浙江",
-      "安徽",
-      "福建",
-      "江西",
-      "山东",
-      "河南",
-      "湖北",
-      "湖南",
-      "广东",
-      "广西",
-      "海南",
-      "重庆",
-      "四川",
-      "贵州",
-      "云南",
-      "西藏",
-      "陕西",
-      "甘肃",
-      "青海",
-      "宁夏",
-      "新疆"
-    ]
-
-  def codes(),
-    do: [
-      "11",
-      "12",
-      "13",
-      "14",
-      "15",
-      "21",
-      "22",
-      "23",
-      "31",
-      "32",
-      "33",
-      "34",
-      "35",
-      "36",
-      "37",
-      "41",
-      "42",
-      "43",
-      "44",
-      "45",
-      "46",
-      "50",
-      "51",
-      "52",
-      "53",
-      "54",
-      "61",
-      "62",
-      "63",
-      "64",
-      "65"
-    ]
 
   def items(),
     do: [

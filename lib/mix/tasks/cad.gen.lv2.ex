@@ -16,176 +16,73 @@ defmodule Mix.Tasks.Cad.Gen.Lv2 do
     Jason.decode!(content)
   end
 
-  defp generate() do
-    pca_code = read_pca_code()
-    {lv1lv2_items, lv2lv3_items, lv3lv4_items, lv4_items, lv1_items, lv1_names, lv1_shorter_names, lv1_codes} =
-      Enum.reduce(pca_code, {[], [], [], [], [], [], [], []}, fn p, {pcs0, cas0, lv3_4_acc, lv4_acc, lv1_items, lv1_names, lv1_shorter_names, lv1_codes} ->
-        lv1_name = p["name"]
-        lv1_code = p["code"]
+  def generate() do
+    {lv1, lv2, lv3, lv4} = read_pca_code() |> loop_items(1)
 
-        {lv2_items, lv2_3_items, lv3_4_items, lv4_items} =
-          Enum.reduce(p["children"], {[], [], [], []}, fn lv2_item, {l2s, l2_3s, lv3_4s, l4s} ->
-            lv2_name = lv2_item["name"]
-            {lv2_name, lv2_shorter_name} = 
-              case lv2_name do
-                "市辖区" ->
-                  {"#{lv1_name}/#{lv2_name}", "#{Helper.make_lv1_name_shorter(lv1_name)}/#{lv2_name}"}
-                "县" ->
-                  # 重庆市下属区分"市辖区"和"县"
-                  # see: https://www.stats.gov.cn/sj/tjbz/tjyqhdmhcxhfdm/2023/50.html
-                  {"#{lv1_name}/#{lv2_name}", "#{Helper.make_lv1_name_shorter(lv1_name)}/#{lv2_name}"}
-                "省直辖县级行政区划" ->
-                  # 4290
-                  # see: https://www.stats.gov.cn/sj/tjbz/tjyqhdmhcxhfdm/2023/42.html
-                  {"#{lv1_name}/#{lv2_name}", "#{Helper.make_lv1_name_shorter(lv1_name)}/#{lv2_name}"}
-                "自治区直辖县级行政区划" ->
-                  # 6590
-                  # see: https://www.stats.gov.cn/sj/tjbz/tjyqhdmhcxhfdm/2023/65.html
-                  {"#{lv1_name}/#{lv2_name}", "#{Helper.make_lv1_name_shorter(lv1_name)}/#{lv2_name}"}
-                _ ->
-                  {lv2_name, Helper.make_lv2_name_shorter(lv2_name)}
-              end
-            lv2_code = lv2_item["code"]
-
-            {lv3_items, lv3_4_items, lv4_items} =
-              Enum.reduce(lv2_item["children"], {[], [], []}, fn item, {lv3_acc, lv3_4_acc, lv4_acc} ->
-                lv3_name = item["name"]
-                #lv3_code = String.pad_trailing(item["code"]
-                lv3_code = item["code"]
-
-                {lv4_str_items, lv4_items} =
-                  Enum.reduce(item["children"], {[], []}, fn item, {l4si, l4i} ->
-                    formatted_code = String.pad_trailing(item["code"], 12, "0")
-                    {
-                      [~s{%\{"name" => "#{item["name"]}", "code" => "#{formatted_code}"\}} | l4si],
-                      [Map.put(item, "code", formatted_code) | l4i]
-                    }
-                  end)
-
-                {
-                  [~s{%\{"name" => "#{lv3_name}", "code" => "#{lv3_code}"\}} | lv3_acc],
-                  [
-                    %{
-                      "lv3_name" => lv3_name,
-                      "lv3_code" => lv3_code,
-                      "lv4_items" => Enum.reverse(lv4_str_items)
-                    } | lv3_4_acc
-                  ],
-                  [Enum.reverse(lv4_items) | lv4_acc],
-                }
-              end)
-
-            {
-              [
-                ~s{%\{"name" => "#{lv2_name}", "code" => "#{lv2_code}"\}} | l2s
-              ],
-              [
-                %{
-                  "lv2_name" => lv2_name,
-                  "lv2_code" => lv2_code,
-                  "lv2_shorter_name" => lv2_shorter_name,
-                  "lv3_items" => Enum.reverse(lv3_items)
-                }
-                | l2_3s
-              ],
-              [lv3_4_items | lv3_4s],
-              [{lv2_code, lv4_items} | l4s]
-            }
-          end)
-
-        {
-          [
-            %{
-              "lv1_name" => lv1_name,
-              "lv1_code" => lv1_code,
-              "lv2_items" => Enum.reverse(lv2_items)
-            } | pcs0
-          ],
-          [
-            Enum.reverse(lv2_3_items) | cas0
-          ],
-          [
-            {lv1_code, Enum.reverse(lv3_4_items)} | lv3_4_acc
-          ],
-          [
-            lv4_items | lv4_acc
-          ],
-          [
-            %{"name" => lv1_name, "code" => lv1_code} | lv1_items
-          ],
-          [
-            lv1_name | lv1_names
-          ],
-          [
-            Helper.make_lv1_name_shorter(lv1_name) | lv1_shorter_names
-          ],
-          [
-            lv1_code | lv1_codes
-          ]
-        }
+    # lv1
+    source = "priv/templates/cad_gen/lv1s.ex"
+    target = "lib/gen/lv1s.ex"
+    lv1_items_literal =
+      Enum.map(lv1, fn item ->
+        ~s{%\{"name" => "#{item["name"]}", "code" => "#{item["code"]}"\}}
       end)
+    file_content =
+      source
+      |> EEx.eval_file(context: %{
+        lv1_items: lv1,
+        lv1_str_items: lv1_items_literal,
+        lv1_name_shorter: &Helper.make_lv1_name_shorter/1
+      })
+      |> Code.format_string!()
 
+    Mix.Generator.create_file(target, file_content, [])
+
+    # lv2
     source = "priv/templates/cad_gen/lv2d.ex"
     target = "lib/gen/lv2d.ex"
 
     file_content =
       source
       |> EEx.eval_file(context: %{
-        #lv1_2_items: lv1lv2_items,
-        lv2_3_items: List.flatten(lv2lv3_items) |> Enum.reverse(),
-        #lv1_name_shorter: &Helper.make_lv1_name_shorter/1,
-        #lv2_name_shorter: &Helper.make_lv2_name_shorter/1
+        lv2_items: lv2,
+        lv2_name_shorter: &Helper.make_lv2_name_shorter/1
       })
       |> Code.format_string!()
 
     Mix.Generator.create_file(target, file_content, [])
 
-    source = "priv/templates/cad_gen/lv1s.ex"
-    target = "lib/gen/lv1s.ex"
-    lv1_items = Enum.reverse(lv1_items)
-    lv1_str_items = Enum.map(lv1_items, fn item ->
-      ~s{%\{"name" => "#{item["name"]}", "code" => "#{item["code"]}"\}}
-    end) |> Enum.join(", ")
-    file_content =
-      source
-      |> EEx.eval_file(context: %{
-        lv1_items: lv1_items,
-        lv1_str_items: lv1_str_items,
-        lv1_2_items: lv1lv2_items,
-        lv1_name_shorter: &Helper.make_lv1_name_shorter/1,
-        #lv2_name_shorter: &Helper.make_lv2_name_shorter/1,
-        group_set: {Enum.reverse(lv1_names), Enum.reverse(lv1_shorter_names), Enum.reverse(lv1_codes)}
-      })
-      |> Code.format_string!()
-
-    Mix.Generator.create_file(target, file_content, [])
-
-
+    # lv3
     source = "priv/templates/cad_gen/lv3x.submodule.ex"
-    formatted_lv3lv4_items =
-      for {key, items} <- lv3lv4_items do
-        target = "lib/gen/lv3x/m#{key}.ex"
+    lv3_kv_items =
+    for {key, items} <- Map.to_list(lv3) do
+      #IO.puts "key:#{key}"
+      #IO.inspect items
+      target = "lib/gen/lv3x/m#{key}.ex"
 
-        items = List.flatten(items) |> Enum.reverse()
+      file_content =
+        source
+        |> EEx.eval_file(context: %{
+          items: items,
+          module: "M#{key}"
+        })
+        |> Code.format_string!()
 
-        file_content =
-          source
-          |> EEx.eval_file(context: %{
-            items: items,
-            module: "M#{key}"
-          })
-          |> Code.format_string!()
+      Mix.Generator.create_file(target, file_content, [])
 
-        Mix.Generator.create_file(target, file_content, [])
-        {key, items}
-      end
+      {
+        key,
+        Enum.reduce(items, [], fn i, acc ->
+          [i["name"] | acc]
+        end)
+      }
+    end
 
     source = "priv/templates/cad_gen/lv3x.part1.ex"
     target = "lib/gen/lv3x.part1.ex"
     file_content =
       source
       |> EEx.eval_file(context: %{
-        lv3_4_items: formatted_lv3lv4_items,
+        lv3_items: lv3,
       })
       |> Code.format_string!()
 
@@ -193,18 +90,10 @@ defmodule Mix.Tasks.Cad.Gen.Lv2 do
 
     source = "priv/templates/cad_gen/lv3x.part2.ex"
     target = "lib/gen/lv3x.part2.ex"
-    lv3_4_to_part2 = Enum.map(formatted_lv3lv4_items, fn {key, items} ->
-      {
-        key,
-        Enum.reduce(items, [], fn i, acc ->
-          [i["lv3_name"] | acc]
-        end)
-      }
-    end)
     file_content =
       source
       |> EEx.eval_file(context: %{
-        kv_items: lv3_4_to_part2
+        kv_items: lv3_kv_items
       })
       |> Code.format_string!()
 
@@ -219,18 +108,82 @@ defmodule Mix.Tasks.Cad.Gen.Lv2 do
 
     Mix.Generator.create_file(target, file_content, [])
 
-    lv4_items = List.flatten(lv4_items)
+    # lv4
     source = "priv/templates/cad_gen/lv4xg.submodule.ex"
-    for {key, items} <- lv4_items do
+    for {key, items} <- Map.to_list(lv4) do
       target = "lib/gen/lv4xg/m#{key}.ex"
       file_content =
         source
         |> EEx.eval_file(context: %{
-          items: List.flatten(items),
+          items: items,
           module: "M#{key}"
         })
         |> Code.format_string!()
       Mix.Generator.create_file(target, file_content, [])
     end
   end
+   
+  # {
+  #   [
+  #     %{"code" => "1", "name" => "name", "subitems" => [~s%{...}, ~s%{...}]}
+  #   ],
+  #   [
+  #     %{"code" => "2", "name" => "name", "subitems" => [~s{}, ~s{}]}
+  #   ],
+  #   [
+  #     %{"code" => "3", "name" => "name", "subitems" => [~s{}, ~s{}], #dynamic_lv1_name}
+  #   ],
+  #   [
+  #     %{"code" => "4", "name" => "name", #dynamic_lv2_name}
+  #   ]
+  # }
+  #
+  def loop_items(items, index, acc \\ {[], [], %{}, %{}}) do
+    do_loop_items(items, acc, index)
+  end
+
+  defp do_loop_items([], {l1, l2, l3, l4}, 1) do
+    {l1, l2, l3, l4}
+  end
+  defp do_loop_items([], {parent_subitems, {l1, l2, l3, l4}, _parent_item}, 2) do
+    {parent_subitems, {l1, l2, l3, l4}}
+  end
+  defp do_loop_items([], {parent_subitems, {l1, l2, l3, l4}}, 3) do
+    {parent_subitems, {l1, l2, l3, l4}}
+  end
+  defp do_loop_items([], {parent_subitems, {l1, l2, l3, l4}}, 4) do
+    {parent_subitems, {l1, l2, l3, l4}}
+  end
+  defp do_loop_items([item | rest], {l1, l2, l3, l4}, 1) do
+    children = item["children"] || []
+    {subitems, {l1, l2, l3, l4}} = loop_items(children, 2, {[], {l1, l2, l3, l4}, item})
+    do_loop_items(rest, {[ %{"code"=> item["code"], "name" => item["name"], "subitems" => subitems} | l1], l2, l3, l4}, 1)
+  end
+  defp do_loop_items([item | rest], {acc, {l1, l2, l3, l4}, parent_item}, 2) do
+    item_name = item["name"]
+    item_name = if Helper.lv2_name_can_skip_to_next?(item_name), do: "#{parent_item["name"]}/#{item_name}", else: item_name
+    p_subitem = ~s{%\{"name" => "#{item_name}", "code" => "#{item["code"]}"\}}
+    children = item["children"] || []
+    {subitems, {l1, l2, l3, l4}} = loop_items(children, 3, {[], {l1, l2, l3, l4}})
+    do_loop_items(rest, {[p_subitem | acc], {l1, [%{"code" => item["code"], "name" => item_name, "subitems" => subitems} | l2], l3, l4}, parent_item}, 2)
+  end
+  defp do_loop_items([item | rest], {acc, {l1, l2, l3, l4}}, 3) do
+    item_code = item["code"]
+    p_subitem = ~s{%\{"name" => "#{item["name"]}", "code" => "#{item_code}"\}}
+    children = item["children"] || []
+    {subitems, {l1, l2, l3, l4}} = loop_items(children, 4, {[], {l1, l2, l3, l4}})
+    lv1_item_code = String.slice(item_code, 0..1)
+    new_item = %{"name" => item["name"], "code" => item_code, "subitems" => subitems}
+    l3 = Map.update(l3, lv1_item_code, [new_item], fn existed -> [new_item | existed] end)
+    do_loop_items(rest, {[p_subitem | acc], {l1, l2, l3, l4}}, 3)
+  end
+  defp do_loop_items([item | rest], {acc, {l1, l2, l3, l4}}, 4) do
+    item_code = String.pad_trailing(item["code"], 12, "0")
+    p_subitem = ~s{%\{"name" => "#{item["name"]}", "code" => "#{item_code}"\}}
+    lv2_item_code = String.slice(item_code, 0..3)
+    new_item = %{"name" => item["name"] , "code" => item_code}
+    l4 = Map.update(l4, lv2_item_code, [new_item], fn existed -> [new_item | existed] end)
+    do_loop_items(rest, {[p_subitem | acc], {l1, l2, l3, l4}}, 4)
+  end
+
 end
